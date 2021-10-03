@@ -1,21 +1,22 @@
-def solution(hot, K):
-    answer = 1
-    scoville = len(hot)
-    hot.sort()
-    while(True):
-        spicy = hot[0] + (hot[1] * 2)
-        hot[0] = spicy
-        hot.pop(1)
-        hot.sort()
+import heapq
 
-        if hot[0] >= K or len(hot) == 1:
-            if hot[0] == K:
-                answer -= 1
+def solution(scoville, K):
+    answer = 0
+    heapq.heapify(scoville)
+    
+    while scoville:
+        if scoville[0] >= K:
             break
-        else:
+        
+        if len(scoville) >= 2:
+            fir = heapq.heappop(scoville)
+            sec = heapq.heappop(scoville)
+
+            mix = fir + sec * 2
+            heapq.heappush(scoville, mix)
             answer += 1
-
-    if answer + 1 == scoville and spicy != K:
-        answer = -1
-
+        else:
+            answer = -1
+            break
+    
     return answer
