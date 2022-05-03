@@ -21,7 +21,6 @@ public class BOJ10972_다음순열 {
             arr[i] = Integer.parseInt(st.nextToken());
             arr2[i] = arr[i];
         }
-        int cnt = 0;
         Arrays.sort(arr2);
         int idx = 0;
         for (int i = N-1; i >= 0; i--) {

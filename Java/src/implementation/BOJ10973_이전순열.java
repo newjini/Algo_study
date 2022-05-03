@@ -21,7 +21,6 @@ public class BOJ10973_이전순열 {
             arr[i] = Integer.parseInt(st.nextToken());
             arr2[i] = arr[i];
         }
-        int cnt = 0;
         Arrays.sort(arr2);
         if(Arrays.equals(arr,arr2)){    // 이미 오름차순 정렬 돼 있으면 -1
             System.out.println(-1);
